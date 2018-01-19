@@ -1,0 +1,50 @@
+buildscript {
+	ext {
+		springBootVersion = '1.5.9.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+
+group = 'com.mybatis.generator'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+}
+
+
+dependencies {
+
+	compile('org.springframework.boot:spring-boot-starter')
+
+	//mysql-connector-java
+	compile group: 'mysql', name: 'mysql-connector-java', version: '6.0.6'
+
+	//mapper
+	compile group: 'tk.mybatis', name: 'mapper', version: '3.5.0'
+
+	// https://mvnrepository.com/artifact/dom4j/dom4j
+	compile group: 'dom4j', name: 'dom4j', version: '1.6.1'
+
+	//mybatis-generator-core
+	compile group: 'org.mybatis.generator', name: 'mybatis-generator-core', version: '1.3.6'
+
+	// fasterxml jackson
+	compile 'com.fasterxml.jackson.core:jackson-core:2.8.4'
+	compile 'com.fasterxml.jackson.core:jackson-databind:2.8.4'
+	compile 'com.fasterxml.jackson.datatype:jackson-datatype-joda:2.8.4'
+	compile 'com.fasterxml.jackson.module:jackson-module-parameter-names:2.8.4'
+	compile 'com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.8.4'
+
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+}
